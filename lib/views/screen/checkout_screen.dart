@@ -2,9 +2,11 @@ import 'package:ecommerce_getx/controller/checkout_controller.dart';
 import 'package:ecommerce_getx/model/address_model.dart';
 import 'package:ecommerce_getx/utils/components/custom_text.dart';
 import 'package:ecommerce_getx/utils/constant/constant.dart';
+import 'package:ecommerce_getx/views/screen/strip_payment_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:im_stepper/stepper.dart';
+import 'package:stripe_payment/stripe_payment.dart';
 
 // ignore: must_be_immutable
 class IconStepperDemo extends GetView<CheckoutController> {
@@ -80,6 +82,7 @@ class IconStepperDemo extends GetView<CheckoutController> {
                     stepRadius: 18,
                     activeStepBorderPadding: 1,
                     onStepReached: (index) {
+                      print('index $index');
                       controller.updateActiveStep(index);
                     },
 
@@ -137,7 +140,15 @@ class IconStepperDemo extends GetView<CheckoutController> {
         primary: primartColor,
       ),
       onPressed: () async {
+        var x;
+        print(controller.activeStep);
+        if (controller.activeStep == 2) {
+          Get.off(() => StripPaymentScreen());
+        }
+        if (controller.activeStep == 2) {}
+
         // Increment activeStep, when the next button is tapped. However, check for upper bound.
+
         if (controller.activeStep == 1) {
           if (controller.addressKey.currentState?.validate() ?? false) {
             controller.addressKey.currentState?.save();

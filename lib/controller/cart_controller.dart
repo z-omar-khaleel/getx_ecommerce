@@ -84,7 +84,7 @@ class CartController extends GetxController {
     update();
   }
 
-  deleteCart(CartModel cart, {bool isConfirmed = false}) async {
+  deleteCartObject(CartModel cart, {bool isConfirmed = false}) async {
     var dbHelper = CartDatabaseHelper.cartHelper;
     if (isConfirmed) {
       await dbHelper.delete(cart.id);
@@ -105,5 +105,11 @@ class CartController extends GetxController {
       await dbHelper.delete(cart.id);
       await getAllProduct();
     }
+  }
+
+  deleteAll() async {
+    var dbHelper = CartDatabaseHelper.cartHelper;
+    await dbHelper.deleteAll();
+    await getAllProduct();
   }
 }

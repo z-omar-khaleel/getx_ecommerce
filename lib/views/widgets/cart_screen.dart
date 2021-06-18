@@ -117,7 +117,7 @@ class CartScreen extends StatelessWidget {
             TextButton(
               child: Text('Confirm'),
               onPressed: () {
-                controller.deleteCart(model, isConfirmed: true);
+                controller.deleteCartObject(model, isConfirmed: true);
                 Navigator.of(context).pop();
               },
             ),
@@ -214,7 +214,7 @@ class CartScreen extends StatelessWidget {
                         IconButton(
                           padding: EdgeInsets.only(bottom: 20),
                           onPressed: () async {
-                            await controller.deleteCart(model);
+                            await controller.deleteCartObject(model);
                           },
                           icon: Icon(Icons.minimize),
                         ),

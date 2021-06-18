@@ -170,13 +170,12 @@ class DetailsScreen extends StatelessWidget {
                             init: Get.put(CartController()),
                             builder: (controller) => ElevatedButton(
                               onPressed: () async {
-                                var model = await controller.addProduct(
-                                    CartModel(
-                                        image: bestSelling.pic,
-                                        price: bestSelling.price,
-                                        name: bestSelling.title,
-                                        quantity: 1,
-                                        id: bestSelling.id));
+                                await controller.addProduct(CartModel(
+                                    image: bestSelling.pic,
+                                    price: bestSelling.price,
+                                    name: bestSelling.title,
+                                    quantity: 1,
+                                    id: bestSelling.id));
                               },
                               style: ElevatedButton.styleFrom(
                                 primary: primartColor,

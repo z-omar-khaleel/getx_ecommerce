@@ -57,4 +57,10 @@ class CartDatabaseHelper {
 
     return await db!.delete(tableName, where: '$idColumn = ?', whereArgs: [id]);
   }
+
+  Future<int> deleteAll() async {
+    final db = await database;
+
+    return await db!.delete(tableName);
+  }
 }

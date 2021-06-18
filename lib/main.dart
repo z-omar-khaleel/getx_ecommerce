@@ -5,6 +5,7 @@ import 'package:ecommerce_getx/model/user_info.dart';
 import 'package:ecommerce_getx/utils/constant/constant.dart';
 import 'package:ecommerce_getx/views/screen/Home_screen.dart';
 import 'package:ecommerce_getx/views/screen/login_screen.dart';
+import 'package:ecommerce_getx/views/screen/strip_payment_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
